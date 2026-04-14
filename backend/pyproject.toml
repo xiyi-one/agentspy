@@ -1,0 +1,13 @@
+[project]
+name = "agentspy-backend"
+version = "0.1.0"
+description = "FastAPI backend for AgentSpy."
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi",
+    "sqlalchemy",
+    "uvicorn[standard]",
+]
+
+[tool.uvicorn]
+factory = false
