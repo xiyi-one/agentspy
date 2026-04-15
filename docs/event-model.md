@@ -4,6 +4,8 @@ AgentSpy stores external agent framework events as a normalized event plus the o
 
 This model is internal to AgentSpy. API routes, database persistence, queues, workers, rules execution, and notifications are intentionally out of scope for this phase.
 
+Persisted audit events are exposed through `GET /api/v1/events`, which returns normalized event items plus timeline-oriented `summary_text` and a `total` count for matching filters.
+
 ## Schema
 
 | Field | Required | Type | Description |

@@ -12,4 +12,8 @@ class Base(DeclarativeBase):
 
 
 def create_db_and_tables() -> None:
+    import app.models.alert  # noqa: F401
+    import app.models.event  # noqa: F401
+    import app.models.rule  # noqa: F401
+
     Base.metadata.create_all(bind=engine)

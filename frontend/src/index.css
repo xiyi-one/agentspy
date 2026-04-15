@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-border: hsl(var(--border));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Sans", "Manrope", ui-sans-serif, system-ui;
+  --shadow-glass: 0 24px 80px rgba(15, 23, 42, 0.10);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.72);
+}
+
+@layer base {
+  :root {
+    --background: 42 36% 96%;
+    --foreground: 222 31% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 31% 11%;
+    --border: 220 16% 86%;
+    --muted: 220 18% 92%;
+    --muted-foreground: 219 12% 44%;
+    --primary: 217 31% 17%;
+    --primary-foreground: 0 0% 100%;
+    --destructive: 4 70% 46%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    background: #f6f2ea;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv03";
+  }
+
+  ::selection {
+    background: rgba(15, 23, 42, 0.12);
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply border border-white/60 shadow-glass backdrop-blur-2xl;
+    background: rgba(255, 255, 255, 0.68);
+  }
+
+  .hairline-panel {
+    @apply border border-slate-200/80 shadow-inset backdrop-blur-xl;
+    background: rgba(255, 255, 255, 0.74);
+  }
+}

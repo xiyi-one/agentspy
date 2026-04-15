@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
@@ -31,7 +31,25 @@ class NormalizedEvent(BaseModel):
     )
 
 
+class IngestEvent(BaseModel):
+    workspace_id: str | None = None
+    agent_id: str
+    run_id: str | None = None
+    event_id: str | None = None
+    timestamp: datetime
+    category: str
+    action: str
+    target: EventTarget
+    status: str | None = None
+    cost: EventCost | None = None
+    metadata: dict[str, Any] | None = None
+    raw_payload: dict[str, Any] = Field(
+        description="Original source payload before normalization."
+    )
+
+
 class IngestResponse(BaseModel):
-    success: bool
-    accepted: int
+    received: int
+    status: Literal["queued"] = "queued"
+    message: str | None = None
     event_ids: list[str] | None = None
